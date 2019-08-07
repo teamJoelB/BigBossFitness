@@ -50,4 +50,21 @@ public class UserDao {
     return result;
 }
     
+        public static void insert (User person) throws SQLException {
+        String sql = "INSERT INTO utilisateurs ( Nom, Prenom, mail, Login, Mdp, Age, Taille, Sexe) VALUES ( ?, ?, ?, ?, ?, ?, ?,?,)";
+        
+        Connection connexion = AccessDao.getConnection();
+        
+        PreparedStatement ordre = connexion.prepareStatement(sql);
+        ordre.setString(1, person.getNom()  );
+        ordre.setString(2, person.getPrenom()  );
+        ordre.setString(3, person.getMail());
+        ordre.setString(4, person.getLogin());
+        ordre.setString(5, person.getMdp()  );
+        ordre.setInt(6, person.getAge());
+        ordre.setInt(7, person.getTaille());
+        ordre.setString(8, person.getSexe());     
+        
+        ordre.execute();
+    }
 }
