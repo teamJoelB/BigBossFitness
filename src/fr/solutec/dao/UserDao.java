@@ -41,7 +41,7 @@ public class UserDao {
         result.setAge(rs.getInt("Age"));
         result.setTaille(rs.getInt("Taille"));
         result.setSexe(rs.getString("Sexe"));  
-        result.setDate(rs.getDate("DateDer"));  
+        result.setDate(rs.getDate("DateDer"));
 
  
      }
