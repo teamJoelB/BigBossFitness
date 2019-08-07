@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 07 août 2019 à 09:15
+-- Généré le :  mer. 07 août 2019 à 09:39
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -33,21 +33,21 @@ USE `donneesprojet`;
 DROP TABLE IF EXISTS `objectif`;
 CREATE TABLE IF NOT EXISTS `objectif` (
   `idObjectif` int(11) NOT NULL AUTO_INCREMENT,
-  `idUtilisateur` int(11) NOT NULL,
+  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   `Debut` date NOT NULL,
   `Duree` varchar(20) NOT NULL,
   `Type` varchar(45) DEFAULT NULL,
   `Poids` int(11) DEFAULT NULL,
   `Temps` time DEFAULT NULL,
   PRIMARY KEY (`idObjectif`),
-  KEY `idUtilisateurs_idx` (`idUtilisateur`)
+  KEY `fk_objectif_utilisateurs_idx` (`utilisateurs_idUtilisateurs`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `objectif`
 --
 
-INSERT INTO `objectif` (`idObjectif`, `idUtilisateur`, `Debut`, `Duree`, `Type`, `Poids`, `Temps`) VALUES
+INSERT INTO `objectif` (`idObjectif`, `utilisateurs_idUtilisateurs`, `Debut`, `Duree`, `Type`, `Poids`, `Temps`) VALUES
 (1, 1, '2019-01-01', 'journalière', 'vélo', NULL, '01:00:00');
 
 -- --------------------------------------------------------
@@ -59,18 +59,18 @@ INSERT INTO `objectif` (`idObjectif`, `idUtilisateur`, `Debut`, `Duree`, `Type`,
 DROP TABLE IF EXISTS `poids`;
 CREATE TABLE IF NOT EXISTS `poids` (
   `idPoids` int(11) NOT NULL AUTO_INCREMENT,
-  `idUtilisateur` int(11) NOT NULL,
+  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   `Poids` int(11) NOT NULL,
   `Date` date NOT NULL,
   PRIMARY KEY (`idPoids`),
-  KEY `idUtilisateur_idx` (`idUtilisateur`)
+  KEY `fk_poids_utilisateurs1_idx` (`utilisateurs_idUtilisateurs`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `poids`
 --
 
-INSERT INTO `poids` (`idPoids`, `idUtilisateur`, `Poids`, `Date`) VALUES
+INSERT INTO `poids` (`idPoids`, `utilisateurs_idUtilisateurs`, `Poids`, `Date`) VALUES
 (1, 1, 60, '2019-01-01');
 
 -- --------------------------------------------------------
