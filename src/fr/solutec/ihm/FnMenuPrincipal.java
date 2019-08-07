@@ -344,9 +344,9 @@ public class FnMenuPrincipal extends javax.swing.JFrame {
 
     private void btHistoriqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHistoriqueActionPerformed
         // TODO add your handling code here:
-                FnHistorique fn = new FnHistorique();
+                //FnHistorique fn = new FnHistorique();
                 this.setVisible(false);
-                fn.setVisible(true);
+                //fn.setVisible(true);
     }//GEN-LAST:event_btHistoriqueActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -19,7 +19,7 @@ public class UserDao {
     public static User getByLoginPass (String login, String mdp) throws SQLException{
     User result = null;
     
-    String sql = "SELECT * FROM personne WHERE login=? AND mdp =?";
+    String sql = "SELECT * FROM utilisateurs WHERE login=? AND mdp =?";
     
     Connection connexion = AccessDao.getConnection();
     
@@ -41,7 +41,7 @@ public class UserDao {
         result.setAge(rs.getInt("Age"));
         result.setTaille(rs.getInt("Taille"));
         result.setSexe(rs.getString("Sexe"));  
-        result.setDate(rs.getDate("DateDer"));
+        result.setDate(rs.getTimestamp("DateDer"));
 
  
      }
@@ -50,21 +50,23 @@ public class UserDao {
     return result;
 }
     
-        public static void insert (User person) throws SQLException {
-        String sql = "INSERT INTO utilisateurs ( Nom, Prenom, mail, Login, Mdp, Age, Taille, Sexe) VALUES ( ?, ?, ?, ?, ?, ?, ?,?,)";
-        
-        Connection connexion = AccessDao.getConnection();
-        
-        PreparedStatement ordre = connexion.prepareStatement(sql);
-        ordre.setString(1, person.getNom()  );
-        ordre.setString(2, person.getPrenom()  );
-        ordre.setString(3, person.getMail());
-        ordre.setString(4, person.getLogin());
-        ordre.setString(5, person.getMdp()  );
-        ordre.setInt(6, person.getAge());
-        ordre.setInt(7, person.getTaille());
-        ordre.setString(8, person.getSexe());     
-        
-        ordre.execute();
-    }
+    public static void insert (User person) throws SQLException {
+    String sql = "INSERT INTO utilisateurs ( Nom, Prenom, mail, Login, Mdp, Age, Taille, DateDer, Sexe) VALUES ( ?, ?, ?, ?, ?, ?, ?,?,)";
+    
+    Connection connexion = AccessDao.getConnection();
+    
+    PreparedStatement ordre = connexion.prepareStatement(sql);
+    ordre.setString(1, person.getNom()  );
+    ordre.setString(2, person.getPrenom()  );
+    ordre.setString(3, person.getMail());
+    ordre.setString(4, person.getLogin());
+    ordre.setString(5, person.getMdp()  );
+    ordre.setInt(6, person.getAge());
+    ordre.setInt(7, person.getTaille());
+    ordre.setTimestamp(8, person.getDate());
+    ordre.setString(9, person.getSexe());
+    
+    ordre.execute();
+}
+
 }

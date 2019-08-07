@@ -5,6 +5,7 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.UserDao;
 import fr.solutec.model.User;
 import javax.swing.JOptionPane;
 
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author esic
  */
 public class FnConnexion extends javax.swing.JFrame {
-
+    private User member;
     /**
      * Creates new form FnConnexion
      */
@@ -193,19 +194,19 @@ public class FnConnexion extends javax.swing.JFrame {
         String login = txtLogin.getText();
         String mdp = txtMdp.getText();
         
-        // try {
-           // User member = UserDao.getByLoginPass(login, mdp);
-            //if (member != null) {
+        try {
+            member = UserDao.getByLoginPass(login, mdp);
+            if (member != null) {
                 //JOptionPane.showMessageDialog(rootPane, " ok ok ");
                 FnMenuPrincipal fn = new FnMenuPrincipal();
                 this.setVisible(false);
                 fn.setVisible(true);
-            //} else {
+            } else {
              //   JOptionPane.showMessageDialog(rootPane, "no no");
-           // }
-        //} catch (Exception e) {
-        //    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-       // }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
        
 
     }//GEN-LAST:event_btValiderActionPerformed
@@ -254,6 +255,12 @@ public class FnConnexion extends javax.swing.JFrame {
                 new FnConnexion().setVisible(true);
             }
         });
+        
+        
+    }
+
+    public User getMember() {
+        return member;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
