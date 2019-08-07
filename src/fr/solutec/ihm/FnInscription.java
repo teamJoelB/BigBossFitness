@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.solutec.ihm;
+import fr.solutec.ihm.FnMenuPrincipal;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -285,6 +286,23 @@ public class FnInscription extends javax.swing.JFrame {
 
     private void btValider1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValider1ActionPerformed
         // TODO add your handling code here:
+        
+        String nom = txtNom.getText();
+        String prenom = txtPrenom.getText();
+        String login = txtLogin.getText();
+        String mdp = txtMdp.getText();
+        
+        // User u = new User();
+        // u.setNom(nom);
+        // u.setPrenom(prenom);
+        // u.setLogin(login);
+        // u.setMdp(mdp);
+        
+        try {
+            // UserDao.insert(u);            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
                 FnMenuPrincipal fn = new FnMenuPrincipal();
                 this.setVisible(false);
                 fn.setVisible(true);
