@@ -28,8 +28,10 @@ public class FnHelp extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbHelp = new javax.swing.JLabel();
         btProfil = new javax.swing.JButton();
+        btDeconnect = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lbHelp = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -40,10 +42,6 @@ public class FnHelp extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        lbHelp.setBackground(new java.awt.Color(58, 142, 186));
-        lbHelp.setForeground(new java.awt.Color(255, 255, 255));
-        lbHelp.setText("rhe");
-
         btProfil.setBackground(new java.awt.Color(253, 108, 158));
         btProfil.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
         btProfil.setText("Mon Profil");
@@ -53,28 +51,46 @@ public class FnHelp extends javax.swing.JFrame {
             }
         });
 
+        btDeconnect.setBackground(new java.awt.Color(255, 255, 255));
+        btDeconnect.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
+        btDeconnect.setText("Exit");
+        btDeconnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeconnectActionPerformed(evt);
+            }
+        });
+
+        lbHelp.setBackground(new java.awt.Color(0, 0, 0));
+        lbHelp.setColumns(20);
+        lbHelp.setForeground(new java.awt.Color(255, 255, 255));
+        lbHelp.setRows(5);
+        jScrollPane1.setViewportView(lbHelp);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lbHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(btProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btDeconnect)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btDeconnect, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(lbHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,14 +100,14 @@ public class FnHelp extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,7 +115,9 @@ public class FnHelp extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        lbHelp.setText("Lorem ipsum dolor sit amet,"+ " /n/t consectetur adipiscing elit." +"</br>"+ "Nulla id sagittis massa." );
+        lbHelp.setText("Lorem ipsum dolor sit amet,"
+                       +  "\r\n consectetur adipiscing elit." 
+                       + "\r\n Nulla id sagittis massa." );
     }//GEN-LAST:event_formWindowOpened
 
     private void btProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProfilActionPerformed
@@ -108,6 +126,11 @@ public class FnHelp extends javax.swing.JFrame {
         this.setVisible(false);
         fn.setVisible(true);
     }//GEN-LAST:event_btProfilActionPerformed
+
+    private void btDeconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeconnectActionPerformed
+      // TODO add your handling code here:
+      System.exit(0);
+    }//GEN-LAST:event_btDeconnectActionPerformed
 
     
     
@@ -147,8 +170,10 @@ public class FnHelp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDeconnect;
     private javax.swing.JButton btProfil;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbHelp;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea lbHelp;
     // End of variables declaration//GEN-END:variables
 }
