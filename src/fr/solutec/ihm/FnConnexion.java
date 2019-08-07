@@ -13,8 +13,10 @@ import javax.swing.JOptionPane;
  *
  * @author esic
  */
+
 public class FnConnexion extends javax.swing.JFrame {
-    private User member;
+
+    private static User member;
     /**
      * Creates new form FnConnexion
      */
@@ -259,7 +261,7 @@ public class FnConnexion extends javax.swing.JFrame {
         
     }
 
-    public User getMember() {
+    public static User getMember() {
         return member;
     }
 

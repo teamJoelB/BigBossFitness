@@ -33,25 +33,23 @@ public class FnHistorique extends javax.swing.JFrame {
     // private static String chartTitle;
     
     public FnHistorique() {
-        
-        //User u = FnConnexion.getMember;
-        //initComponents();
-        //JFreeChart lineChart = ChartFactory.createLineChart(
-         //"Suivi du poids",
-         //"Jours","Poids",
-         //createDataset(u),
-         //PlotOrientation.VERTICAL,
-        // true,true,false);
+        User u = FnConnexion.getMember() ;    
+        initComponents();
+        JFreeChart lineChart = ChartFactory.createLineChart(
+         "Suivi du poids",
+         "Jours","Poids",
+         createDataset(u),
+         PlotOrientation.VERTICAL,
+        true,true,false);
          
-      //ChartPanel chartPanel = new ChartPanel( lineChart );
-      //chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-      //setContentPane( chartPanel );
+      ChartPanel chartPanel = new ChartPanel( lineChart );
+      chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+      setContentPane( chartPanel );
     }
-    
- 
+     
+   
       
-      
-  private void createDataset(User u){
+  private DefaultCategoryDataset createDataset(User u){
       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
       List<Poids> petitPois = new ArrayList<Poids> () ;
         try {                  
@@ -63,6 +61,7 @@ public class FnHistorique extends javax.swing.JFrame {
       for (Poids p : petitPois) {
           dataset.addValue( p.getPoids() , "poids" , p.getDate() );
       }
+      return dataset;
   }      
                
 
