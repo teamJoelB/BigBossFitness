@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import fr.solutec.ihm.FnHelp;
 import fr.solutec.ihm.FnMenuPrincipal;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -66,6 +66,11 @@ public class FnInscription extends javax.swing.JFrame {
         btHelp.setBackground(new java.awt.Color(253, 108, 158));
         btHelp.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
         btHelp.setText("Help");
+        btHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHelpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pBandeauLayout = new javax.swing.GroupLayout(pBandeau);
         pBandeau.setLayout(pBandeauLayout);
@@ -298,15 +303,22 @@ public class FnInscription extends javax.swing.JFrame {
         // u.setLogin(login);
         // u.setMdp(mdp);
         
-        try {
+        // try {
             // UserDao.insert(u);            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
-        }
+        // } catch (Exception e) {
+          //  JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        //}
                 FnMenuPrincipal fn = new FnMenuPrincipal();
                 this.setVisible(false);
                 fn.setVisible(true);
     }//GEN-LAST:event_btValider1ActionPerformed
+
+    private void btHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHelpActionPerformed
+        // TODO add your handling code here:
+                FnHelp fn = new FnHelp();
+                this.setVisible(false);
+                fn.setVisible(true);
+    }//GEN-LAST:event_btHelpActionPerformed
 
     /**
      * @param args the command line arguments
