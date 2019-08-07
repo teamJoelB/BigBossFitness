@@ -5,6 +5,9 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.model.User;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author esic
@@ -37,6 +40,7 @@ public class FnConnexion extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btHelp = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btQuit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,6 +48,11 @@ public class FnConnexion extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(210, 202, 236));
 
         btValider.setText("Valider");
+        btValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btValiderActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Login : ");
 
@@ -101,6 +110,11 @@ public class FnConnexion extends javax.swing.JFrame {
         btHelp.setBackground(new java.awt.Color(253, 108, 158));
         btHelp.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
         btHelp.setText("Help");
+        btHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHelpActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(46, 0, 108));
@@ -127,6 +141,15 @@ public class FnConnexion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btQuit.setBackground(new java.awt.Color(255, 255, 255));
+        btQuit.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
+        btQuit.setText("Quitter");
+        btQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btQuitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,6 +160,10 @@ public class FnConnexion extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btQuit)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +172,9 @@ public class FnConnexion extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -157,6 +186,40 @@ public class FnConnexion extends javax.swing.JFrame {
         this.setVisible(false);
         fn.setVisible(true);
     }//GEN-LAST:event_btInscriptionActionPerformed
+
+    private void btValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderActionPerformed
+        // TODO add your handling code here:
+        
+        String login = txtLogin.getText();
+        String mdp = txtMdp.getText();
+        
+        // try {
+           // User member = UserDao.getByLoginPass(login, mdp);
+            //if (member != null) {
+                //JOptionPane.showMessageDialog(rootPane, " ok ok ");
+                FnMenuPrincipal fn = new FnMenuPrincipal();
+                this.setVisible(false);
+                fn.setVisible(true);
+            //} else {
+             //   JOptionPane.showMessageDialog(rootPane, "no no");
+           // }
+        //} catch (Exception e) {
+        //    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+       // }
+       
+
+    }//GEN-LAST:event_btValiderActionPerformed
+
+    private void btHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHelpActionPerformed
+        // TODO add your handling code here:
+                FnHelp fn = new FnHelp();
+                this.setVisible(false);
+                fn.setVisible(true);
+    }//GEN-LAST:event_btHelpActionPerformed
+
+    private void btQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQuitActionPerformed
+    System.exit(0);
+    }//GEN-LAST:event_btQuitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +259,7 @@ public class FnConnexion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btHelp;
     private javax.swing.JButton btInscription;
+    private javax.swing.JButton btQuit;
     private javax.swing.JButton btValider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

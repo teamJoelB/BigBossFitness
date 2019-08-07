@@ -72,6 +72,11 @@ public class FnMenuPrincipal extends javax.swing.JFrame {
         btHelp.setBackground(new java.awt.Color(253, 108, 158));
         btHelp.setFont(new java.awt.Font("Engravers MT", 1, 10)); // NOI18N
         btHelp.setText("Help");
+        btHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHelpActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,6 +315,13 @@ public class FnMenuPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         fn.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btDeconnectActionPerformed
+
+    private void btHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHelpActionPerformed
+        // TODO add your handling code here:
+                FnHelp fn = new FnHelp();
+                this.setVisible(false);
+                fn.setVisible(true);
+    }//GEN-LAST:event_btHelpActionPerformed
 
     /**
      * @param args the command line arguments
