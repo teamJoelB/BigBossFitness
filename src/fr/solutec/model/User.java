@@ -7,6 +7,7 @@ package fr.solutec.model;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -22,12 +23,24 @@ public class User {
     private int age;
     private int taille;
     private String sexe;
-    private Date date;
+    private Timestamp date;
 
     public User() {
     }
 
-    public User(int id, String nom, String prenom, String mail, String login, String mdp, int age, int taille, String sexe, Date date) {
+    public User(String nom, String prenom, String mail, String login, String mdp, Timestamp date) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.login = login;
+        this.mdp = mdp;
+        this.date = date;
+    }
+    
+    
+
+    public User(String nom, String prenom, String mail, String login, String mdp, int age, int taille, String sexe, Timestamp date) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -77,7 +90,7 @@ public class User {
         return sexe;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
@@ -117,7 +130,7 @@ public class User {
         this.sexe = sexe;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author esic
  */
 public class FnConnexion extends javax.swing.JFrame {
-
+    private User member;
     /**
      * Creates new form FnConnexion
      */
@@ -195,7 +195,7 @@ public class FnConnexion extends javax.swing.JFrame {
         String mdp = txtMdp.getText();
         
         try {
-            User member = UserDao.getByLoginPass(login, mdp);
+            member = UserDao.getByLoginPass(login, mdp);
             if (member != null) {
                 //JOptionPane.showMessageDialog(rootPane, " ok ok ");
                 FnMenuPrincipal fn = new FnMenuPrincipal();
@@ -255,6 +255,12 @@ public class FnConnexion extends javax.swing.JFrame {
                 new FnConnexion().setVisible(true);
             }
         });
+        
+        
+    }
+
+    public User getMember() {
+        return member;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

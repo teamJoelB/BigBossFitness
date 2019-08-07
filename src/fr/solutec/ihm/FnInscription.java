@@ -7,6 +7,9 @@ package fr.solutec.ihm;
  */
 import fr.solutec.ihm.FnHelp;
 import fr.solutec.ihm.FnMenuPrincipal;
+import fr.solutec.model.User;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -298,8 +301,10 @@ public class FnInscription extends javax.swing.JFrame {
         String prenom = txtPrenom.getText();
         String login = txtLogin.getText();
         String mdp = txtMdp.getText();
+        String mail = txtMail.getText();
+        Timestamp date = new Timestamp(System.currentTimeMillis());
         
-        // User u = new User();
+        //User u = new User(nom, prenom, mail,login,mdp, date);
         // u.setNom(nom);
         // u.setPrenom(prenom);
         // u.setLogin(login);
