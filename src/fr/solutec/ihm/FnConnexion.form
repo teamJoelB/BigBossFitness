@@ -131,6 +131,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Inscription"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btInscriptionActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -146,8 +149,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btHelp" min="-2" pref="78" max="-2" attributes="0"/>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <Component id="btHelp" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="226" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
@@ -158,8 +161,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btHelp" min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="btHelp" min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -171,6 +174,9 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9e" green="6c" red="fd" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Engravers MT" size="10" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
