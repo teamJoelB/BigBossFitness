@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 07 août 2019 à 08:28
+-- Généré le :  mer. 07 août 2019 à 09:15
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -84,21 +84,24 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `idUtilisateurs` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(45) NOT NULL,
   `Prenom` varchar(45) NOT NULL,
+  `mail` varchar(45) NOT NULL,
   `Login` varchar(45) NOT NULL,
   `Mdp` varchar(20) NOT NULL,
   `Age` int(11) DEFAULT NULL,
   `Taille` int(11) DEFAULT NULL,
   `DateDer` datetime DEFAULT NULL,
   `Sexe` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`idUtilisateurs`)
+  PRIMARY KEY (`idUtilisateurs`),
+  UNIQUE KEY `idUtilisateurs_UNIQUE` (`idUtilisateurs`),
+  UNIQUE KEY `Login_UNIQUE` (`Login`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`idUtilisateurs`, `Nom`, `Prenom`, `Login`, `Mdp`, `Age`, `Taille`, `DateDer`, `Sexe`) VALUES
-(1, 'root', 'root', 'root', 'root', 30, 160, '2019-01-01 00:00:00', 'Femme');
+INSERT INTO `utilisateurs` (`idUtilisateurs`, `Nom`, `Prenom`, `mail`, `Login`, `Mdp`, `Age`, `Taille`, `DateDer`, `Sexe`) VALUES
+(1, 'root', 'root', 'root@root.com', 'root', 'root', 30, 160, '2019-01-01 00:00:00', 'Femme');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
