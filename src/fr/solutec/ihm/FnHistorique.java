@@ -34,18 +34,18 @@ public class FnHistorique extends javax.swing.JFrame {
     
     public FnHistorique() {
         
-        User u = FnConnexion.getMember;
-        initComponents();
-        JFreeChart lineChart = ChartFactory.createLineChart(
-         "Suivi du poids",
-         "Jours","Poids",
-         createDataset(u),
-         PlotOrientation.VERTICAL,
-         true,true,false);
+        //User u = FnConnexion.getMember;
+        //initComponents();
+        //JFreeChart lineChart = ChartFactory.createLineChart(
+         //"Suivi du poids",
+         //"Jours","Poids",
+         //createDataset(u),
+         //PlotOrientation.VERTICAL,
+        // true,true,false);
          
-      ChartPanel chartPanel = new ChartPanel( lineChart );
-      chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-      setContentPane( chartPanel );
+      //ChartPanel chartPanel = new ChartPanel( lineChart );
+      //chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+      //setContentPane( chartPanel );
     }
     
  

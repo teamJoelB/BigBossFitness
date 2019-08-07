@@ -66,6 +66,11 @@ public class FnMenuPrincipal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(58, 142, 186));
         jPanel1.setForeground(new java.awt.Color(255, 0, 127));
@@ -343,6 +348,12 @@ public class FnMenuPrincipal extends javax.swing.JFrame {
                 this.setVisible(false);
                 fn.setVisible(true);
     }//GEN-LAST:event_btHistoriqueActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+        lbDateConnexion.setText("Date de votre derniere connexion " + "3 fev 2019");
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
