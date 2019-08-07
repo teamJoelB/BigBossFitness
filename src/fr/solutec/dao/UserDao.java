@@ -19,7 +19,7 @@ public class UserDao {
     public static User getByLoginPass (String login, String mdp) throws SQLException{
     User result = null;
     
-    String sql = "SELECT * FROM personne WHERE login=? AND mdp =?";
+    String sql = "SELECT * FROM utilisateurs WHERE login=? AND mdp =?";
     
     Connection connexion = AccessDao.getConnection();
     
@@ -51,7 +51,7 @@ public class UserDao {
 }
     
         public static void insert (User person) throws SQLException {
-        String sql = "INSERT INTO utilisateurs ( Nom, Prenom, mail, Login, Mdp, Age, Taille, Sexe) VALUES ( ?, ?, ?, ?, ?, ?, ?,?,)";
+        String sql = "INSERT INTO utilisateurs ( Nom, Prenom, mail, Login, Mdp, Age, Taille, DateDer, Sexe) VALUES ( ?, ?, ?, ?, ?, ?, ?,?,)";
         
         Connection connexion = AccessDao.getConnection();
         
@@ -63,8 +63,10 @@ public class UserDao {
         ordre.setString(5, person.getMdp()  );
         ordre.setInt(6, person.getAge());
         ordre.setInt(7, person.getTaille());
-        ordre.setString(8, person.getSexe());     
+        ordre.setDate(8, person.getDate());
+        ordre.setString(9, person.getSexe());
         
         ordre.execute();
     }
+
 }

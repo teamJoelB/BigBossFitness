@@ -5,6 +5,7 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.UserDao;
 import fr.solutec.model.User;
 import javax.swing.JOptionPane;
 
@@ -193,19 +194,19 @@ public class FnConnexion extends javax.swing.JFrame {
         String login = txtLogin.getText();
         String mdp = txtMdp.getText();
         
-        // try {
-           // User member = UserDao.getByLoginPass(login, mdp);
-            //if (member != null) {
+        try {
+            User member = UserDao.getByLoginPass(login, mdp);
+            if (member != null) {
                 //JOptionPane.showMessageDialog(rootPane, " ok ok ");
                 FnMenuPrincipal fn = new FnMenuPrincipal();
                 this.setVisible(false);
                 fn.setVisible(true);
-            //} else {
+            } else {
              //   JOptionPane.showMessageDialog(rootPane, "no no");
-           // }
-        //} catch (Exception e) {
-        //    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-       // }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
        
 
     }//GEN-LAST:event_btValiderActionPerformed
