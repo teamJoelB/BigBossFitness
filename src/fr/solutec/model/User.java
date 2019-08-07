@@ -5,6 +5,9 @@
  */
 package fr.solutec.model;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.sql.Date;
+
 /**
  *
  * @author esic
@@ -19,12 +22,12 @@ public class User {
     private int age;
     private int taille;
     private String sexe;
-    private String date;
+    private Date date;
 
     public User() {
     }
 
-    public User(int id, String nom, String prenom, String mail, String login, String mdp, int age, int taille, String sexe, String date) {
+    public User(int id, String nom, String prenom, String mail, String login, String mdp, int age, int taille, String sexe, Date date) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -36,6 +39,7 @@ public class User {
         this.sexe = sexe;
         this.date = date;
     }
+
 
     public int getId() {
         return id;
@@ -73,7 +77,7 @@ public class User {
         return sexe;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -113,7 +117,7 @@ public class User {
         this.sexe = sexe;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -121,7 +125,10 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", login=" + login + ", mdp=" + mdp + ", age=" + age + ", taille=" + taille + ", sexe=" + sexe + ", date=" + date + '}';
     }
-    
+
+
+
+
     
     
     

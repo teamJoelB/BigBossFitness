@@ -306,7 +306,10 @@ public class FnInscription extends javax.swing.JFrame {
         // u.setMdp(mdp);
         
         // try {
-            // UserDao.insert(u);            
+            // UserDao.insert(u);
+                FnMenuPrincipal fnHelp = new FnMenuPrincipal();
+                this.setVisible(false);
+                fnHelp.setVisible(true);
         // } catch (Exception e) {
           //  JOptionPane.showMessageDialog(rootPane, e.getMessage());
         //}
