@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 07 août 2019 à 09:39
+-- Généré le :  mer. 07 août 2019 à 10:21
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -33,22 +33,22 @@ USE `donneesprojet`;
 DROP TABLE IF EXISTS `objectif`;
 CREATE TABLE IF NOT EXISTS `objectif` (
   `idObjectif` int(11) NOT NULL AUTO_INCREMENT,
-  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   `Debut` date NOT NULL,
   `Duree` varchar(20) NOT NULL,
   `Type` varchar(45) DEFAULT NULL,
   `Poids` int(11) DEFAULT NULL,
   `Temps` time DEFAULT NULL,
+  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   PRIMARY KEY (`idObjectif`),
-  KEY `fk_objectif_utilisateurs_idx` (`utilisateurs_idUtilisateurs`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `fk_objectif_utilisateurs1_idx` (`utilisateurs_idUtilisateurs`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `objectif`
 --
 
-INSERT INTO `objectif` (`idObjectif`, `utilisateurs_idUtilisateurs`, `Debut`, `Duree`, `Type`, `Poids`, `Temps`) VALUES
-(1, 1, '2019-01-01', 'journalière', 'vélo', NULL, '01:00:00');
+INSERT INTO `objectif` (`idObjectif`, `Debut`, `Duree`, `Type`, `Poids`, `Temps`, `utilisateurs_idUtilisateurs`) VALUES
+(1, '2019-01-01', 'journalière', 'vélo', NULL, '01:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -59,19 +59,19 @@ INSERT INTO `objectif` (`idObjectif`, `utilisateurs_idUtilisateurs`, `Debut`, `D
 DROP TABLE IF EXISTS `poids`;
 CREATE TABLE IF NOT EXISTS `poids` (
   `idPoids` int(11) NOT NULL AUTO_INCREMENT,
-  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   `Poids` int(11) NOT NULL,
   `Date` date NOT NULL,
+  `utilisateurs_idUtilisateurs` int(11) NOT NULL,
   PRIMARY KEY (`idPoids`),
-  KEY `fk_poids_utilisateurs1_idx` (`utilisateurs_idUtilisateurs`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `fk_poids_utilisateurs_idx` (`utilisateurs_idUtilisateurs`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `poids`
 --
 
-INSERT INTO `poids` (`idPoids`, `utilisateurs_idUtilisateurs`, `Poids`, `Date`) VALUES
-(1, 1, 60, '2019-01-01');
+INSERT INTO `poids` (`idPoids`, `Poids`, `Date`, `utilisateurs_idUtilisateurs`) VALUES
+(1, 60, '2019-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   PRIMARY KEY (`idUtilisateurs`),
   UNIQUE KEY `idUtilisateurs_UNIQUE` (`idUtilisateurs`),
   UNIQUE KEY `Login_UNIQUE` (`Login`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -102,6 +102,22 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`idUtilisateurs`, `Nom`, `Prenom`, `mail`, `Login`, `Mdp`, `Age`, `Taille`, `DateDer`, `Sexe`) VALUES
 (1, 'root', 'root', 'root@root.com', 'root', 'root', 30, 160, '2019-01-01 00:00:00', 'Femme');
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `objectif`
+--
+ALTER TABLE `objectif`
+  ADD CONSTRAINT `fk_objectif_utilisateurs1` FOREIGN KEY (`utilisateurs_idUtilisateurs`) REFERENCES `utilisateurs` (`idUtilisateurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `poids`
+--
+ALTER TABLE `poids`
+  ADD CONSTRAINT `fk_poids_utilisateurs` FOREIGN KEY (`utilisateurs_idUtilisateurs`) REFERENCES `utilisateurs` (`idUtilisateurs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
